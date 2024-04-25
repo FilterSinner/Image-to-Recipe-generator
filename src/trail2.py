@@ -19,25 +19,25 @@ import random
 from collections import Counter
 import sys; sys.argv=['']; del sys
 
-data_dir = '../data'
-#data inputs
+# data inputs
 use_gpu = False
 device = torch.device('cuda' if torch.cuda.is_available() and use_gpu else 'cpu')
 map_loc = None if torch.cuda.is_available() and use_gpu else 'cpu'
 ingr_vocab_file = 'ingr_vocab.pkl'
 instr_vocab_file = 'instr_vocab.pkl'
-ingr_vocab_path = os.path.join(data_dir, ingr_vocab_file)
-instr_vocab_path = os.path.join(data_dir, instr_vocab_file)
+ingr_vocab_path = os.path.join('data', ingr_vocab_file)
+instr_vocab_path = os.path.join('data', instr_vocab_file)
+
 with open(ingr_vocab_path, 'rb') as f:
     ingrs_vocab = pickle.load(f)
 
 with open(instr_vocab_path, 'rb') as f:
     vocab = pickle.load(f)
 
-
 ingr_vocab_size = len(ingrs_vocab)
 instrs_vocab_size = len(vocab)
 output_dim = instrs_vocab_size
+
 
 t = time.time()
 args = get_parser()
