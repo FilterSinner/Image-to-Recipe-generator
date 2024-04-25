@@ -45,7 +45,7 @@ args.maxseqlen = 15
 args.ingrs_only=False
 model = get_model(args, ingr_vocab_size, instrs_vocab_size)
 # Load the trained model parameters
-model_path = os.path.join(data_dir, 'modelbest.ckpt')
+model_path = os.path.join('data', 'modelbest.ckpt')
 model.load_state_dict(torch.load(model_path, map_location=map_loc))
 model.to(device)
 model.eval()
