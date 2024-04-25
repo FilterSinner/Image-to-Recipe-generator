@@ -24,9 +24,16 @@ data_dir = '../data'
 use_gpu = False
 device = torch.device('cuda' if torch.cuda.is_available() and use_gpu else 'cpu')
 map_loc = None if torch.cuda.is_available() and use_gpu else 'cpu'
+ingr_vocab_file = 'ingr_vocab.pkl'
+instr_vocab_file = 'instr_vocab.pkl'
+with open(ingr_vocab_path, 'rb') as f:
+    ingrs_vocab = pickle.load(f)
 
-ingrs_vocab = pickle.load(open(os.path.join(data_dir, 'ingr_vocab.pkl'), 'rb'))
-vocab = pickle.load(open(os.path.join(data_dir, 'instr_vocab.pkl'), 'rb'))
+with open(instr_vocab_path, 'rb') as f:
+    vocab = pickle.load(f)
+ingr_vocab_path = os.path.join(data_dir, ingr_vocab_file)
+instr_vocab_path = os.path.join(data_dir, instr_vocab_file)
+
 ingr_vocab_size = len(ingrs_vocab)
 instrs_vocab_size = len(vocab)
 output_dim = instrs_vocab_size
