@@ -1,4 +1,4 @@
-**SnapChef: Revolutionizing Cooking with AI**
+# **Revolutionizing Cooking with AI**
 
 In today's fast-paced world, finding time to cook a homemade meal can be challenging. Yet, with the rise of food delivery apps and pre-packaged meals, many are left craving the satisfaction of creating something delicious from scratch. Enter SnapChef, a groundbreaking data science project that bridges the gap between culinary creativity and convenience.
 
