@@ -10,3 +10,4 @@ lmdb
 tensorflow
 tensorboardX
 Streamlit
+google-api-python-client
