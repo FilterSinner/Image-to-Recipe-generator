@@ -19,25 +19,19 @@ import random
 from collections import Counter
 import sys; sys.argv=['']; del sys
 
-# data inputs
+data_dir = 'data'
+
+
+#data inputs
 use_gpu = False
 device = torch.device('cuda' if torch.cuda.is_available() and use_gpu else 'cpu')
 map_loc = None if torch.cuda.is_available() and use_gpu else 'cpu'
-ingr_vocab_file = 'ingr_vocab.pkl'
-instr_vocab_file = 'instr_vocab.pkl'
-ingr_vocab_path = os.path.join('data', ingr_vocab_file)
-instr_vocab_path = os.path.join('data', instr_vocab_file)
 
-with open(ingr_vocab_path, 'rb') as f:
-    ingrs_vocab = pickle.load(f)
-
-with open(instr_vocab_path, 'rb') as f:
-    vocab = pickle.load(f)
-
+ingrs_vocab = pickle.load(open(os.path.join(data_dir, 'ingr_vocab.pkl'), 'rb'))
+vocab = pickle.load(open(os.path.join(data_dir, 'instr_vocab.pkl'), 'rb'))
 ingr_vocab_size = len(ingrs_vocab)
 instrs_vocab_size = len(vocab)
 output_dim = instrs_vocab_size
-
 
 t = time.time()
 args = get_parser()
@@ -45,7 +39,7 @@ args.maxseqlen = 15
 args.ingrs_only=False
 model = get_model(args, ingr_vocab_size, instrs_vocab_size)
 # Load the trained model parameters
-model_path = os.path.join('data', 'modelbest.ckpt')
+model_path = os.path.join(data_dir, 'modelbest.ckpt')
 model.load_state_dict(torch.load(model_path, map_location=map_loc))
 model.to(device)
 model.eval()
@@ -100,4 +94,7 @@ if uploaded_file is not None:
     if num_valid > 0:
         print("Accuracy:", valid['score'] * 100)
 st.write(Recipe_details, unsafe_allow_html=True)
+print("Model path:", model_path)
+print("Does model file exist:", os.path.exists(model_path))
+
         
