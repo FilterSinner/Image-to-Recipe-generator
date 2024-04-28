@@ -26,7 +26,7 @@ from google.oauth2 import service_account
 data_dir = 'data'
 
 def download_modelbest_from_drive():
-    credentials = service_account.Credentials.from_service_account_file('gdrivemodel.json')
+    credentials = service_account.Credentials.from_service_account_file('Image-to-Recipe-generator/src/gdrivemodel.json')
     drive_service = build('drive', 'v3', credentials=credentials)
     file_id = '1VMwk3_0R6bYjLqg8dd0XUag7Z7uGr03A'  
     request = drive_service.files().get_media(fileId=file_id)
