@@ -18,32 +18,9 @@ from io import BytesIO
 import random
 from collections import Counter
 import sys; sys.argv=['']; del sys
-import io
-from googleapiclient.discovery import build
-from google.oauth2 import service_account
-
 
 data_dir = 'data'
 
-def download_modelbest_from_drive():
-    credentials = service_account.Credentials.from_service_account_file('Image-to-Recipe-generator/src/gdrivemodel.json')
-    drive_service = build('drive', 'v3', credentials=credentials)
-    file_id = '1VMwk3_0R6bYjLqg8dd0XUag7Z7uGr03A'  
-    request = drive_service.files().get_media(fileId=file_id)
-    downloaded_file = io.BytesIO()
-    downloader = MediaIoBaseDownload(downloaded_file, request)
-    done = False
-    while done is False:
-        status, done = downloader.next_chunk()
-        print("Download %d%%." % int(status.progress() * 100))
-    # Save the downloaded file
-    with open('modelbest.ckpt', 'wb') as f:
-        downloaded_file.seek(0)
-        f.write(downloaded_file.read())
-    print("File downloaded successfully.")
-
-# Download the modelbest.ckpt file from Google Drive
-download_modelbest_from_drive()
 
 #data inputs
 use_gpu = False
@@ -62,9 +39,7 @@ args.maxseqlen = 15
 args.ingrs_only=False
 model = get_model(args, ingr_vocab_size, instrs_vocab_size)
 # Load the trained model parameters
-#model_path = os.path.join(data_dir, 'modelbest.ckpt')
-
-model_path = 'modelbest.ckpt'  # Update with the path where you saved the downloaded modelbest.ckpt file
+model_path = os.path.join(data_dir, 'modelbest.ckpt')
 model.load_state_dict(torch.load(model_path, map_location=map_loc))
 model.to(device)
 model.eval()
