@@ -16,5 +16,4 @@ Harnesses the power of deep learning, computer vision, and natural language proc
 
 
 **Conclusion**
-
-SnapChef represents the fusion of technology and gastronomy, offering a glimpse into the future of cooking. With its innovative approach to recipe generation, intuitive interface, and commitment to culinary creativity, SnapChef is poised to revolutionize the way we approach home cooking. 
+Represent the fusion of technology and gastronomy, offering a glimpse into the future of cooking. With its innovative approach to recipe generation, intuitive interface, and commitment to culinary creativity, SnapChef is poised to revolutionize the way we approach home cooking. 
