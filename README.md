@@ -10,10 +10,10 @@ Harnesses the power of deep learning, computer vision, and natural language proc
 
 **Image Recognition:** First functionality lies in its ability to recognize ingredients from food images. Leveraging computer vision techniques, the project identifies various food items, laying the foundation for recipe generation.
 
-**Recipe Generation:** Once the ingredients are recognized, SnapChef's advanced algorithms swing into action to generate personalized recipes. These recipes are not just random assortments of ingredients but carefully crafted culinary creations tailored to the user's preferences.
+**Recipe Generation:** Once the ingredients are recognized, The app's advanced algorithms swing into action to generate personalized recipes. These recipes are not just random assortments of ingredients but carefully crafted culinary creations tailored to the user's preferences.
 
-**Streamlit Interface:** The user interacts with SnapChef through a sleek and intuitive Streamlit interface. This frontend framework allows for seamless navigation and provides a visually appealing experience for users of all skill levels.
+**Streamlit Interface:** The user interacts with the app through a sleek and intuitive Streamlit interface. This frontend framework allows for seamless navigation and provides a visually appealing experience for users of all skill levels.
 
 
 **Conclusion**
-Represent the fusion of technology and gastronomy, offering a glimpse into the future of cooking. With its innovative approach to recipe generation, intuitive interface, and commitment to culinary creativity, SnapChef is poised to revolutionize the way we approach home cooking. 
+Represent the fusion of technology and gastronomy, offering a glimpse into the future of cooking. With its innovative approach to recipe generation, intuitive interface, and commitment to culinary creativity, our app is poised to revolutionize the way we approach home cooking. 
